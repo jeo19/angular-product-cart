@@ -15,10 +15,6 @@ export class ProductDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private cartService: CartService
   ) {}
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
-    alert('Your product has been added to cart');
-  }
 
   ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
@@ -26,5 +22,9 @@ export class ProductDetailsComponent implements OnInit {
     this.product = products.find(
       (product) => product.id === productIdFromRoute
     );
+  }
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    alert('Your product has been added to cart');
   }
 }
